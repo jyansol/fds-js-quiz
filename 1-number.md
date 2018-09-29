@@ -292,18 +292,12 @@ star(3);
 세 수를 입력받아 큰 것부터 차례대로 출력하는 함수를 작성하세요.
 ```js
 function printLargerFirst (a,b,c){
-  let array = [a,b,c];
-  array.sort(
+  let array = new Array(a, b, c);
+  return array.sort(
     function(a,b){
       return b-a;
     }
   )
-
-  for(let i=0 ; i < 3; i++){
-    console.log(array[i]);
-  }
-  
-  return array;
 }
 
 printLargerFirst(40,2,1);
