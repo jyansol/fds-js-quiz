@@ -1,6 +1,58 @@
 ### 문제 1
 
 두 수를 입력받아 큰 수를 반환하는 함수를 작성하세요.
+1-1
+```js
+function larger(x,y){
+  const a = x
+  const b = y
+  let c ;
+  // a가 크면 a를 c에 넣고 아니면 b를 c에 넣는다
+  if( a > b ){
+    c = a
+  } else {
+    c = b
+  }
+  return c;
+}
+```
+
+1-2
+```js
+function larger(x,y){
+  let c ;
+// a가 크면 a를 c에 넣고 아니면 b를 c에 넣는다
+  if( x > y ){
+    c = x
+  } else {
+    c = y
+  }
+  return c;
+}
+larger(3,2);
+```
+
+1-3
+```js
+function larger(x,y){
+// a가 크면 a를 c에 넣고 아니면 b를 c에 넣는다
+  if( x > y ){
+    return x
+  } else {
+    return y
+  }
+}
+larger(3,2);
+```
+
+1-4
+```js
+function larger(x,y){
+// a가 크면 a를 c에 넣고 아니면 b를 c에 넣는다
+return x > y ? x : y ;
+}
+larger(3,2);
+```
 
 ### 문제 2
 
@@ -10,6 +62,23 @@
 
 ```js
 throw new Error('입력값이 잘못되었습니다.');
+```
+
+2-1
+```js
+function isPositive(x, y, z){
+  if( x * y * z > 0){
+    return true;
+  } else if( x * y * z <= 0 ){
+    return false;
+  } else {
+    throw new Error('입력값이 잘못되었습니다.');
+  }
+}
+
+console.log(isPositive(1,2,3));
+console.log(isPositive(1,2,-3));
+console.log(isPositive(1,2,'mm'));
 ```
 
 ### 문제 3
@@ -26,29 +95,127 @@ limit(3, 7, 11); -> 7
 limit(3, 7, 0); -> 3
 ```
 
+```js
+function limit(min, max, input){
+  if(min>input){
+    return min;
+  } else if(input>max){
+    return max;
+  } else {
+    return input;
+  }
+}
+console.log(limit(3,7,5));
+console.log(limit(3,7,11));
+console.log(limit(3,7,0));
+```
+
 ### 문제 4
 
 어떤 정수가 짝수인지 홀수인지 출력하는 함수를 작성하세요. 이를 이용해서, 1부터 20까지의 수가 각각 짝수인지 홀수인지 출력하는 프로그램을 작성하세요.
+4-1
+```js
+function evenOrOdd(x){
+  if( x % 2 === 0 ){
+    console.log(x + ': 짝수');
+  } else {
+    console.log(`${x}: 홀수`);
+  }
+}
+
+for(let i = 0; i < 20; i++){
+  evenOrOdd(i+1);
+}
+```
 
 ### 문제 5
 
 100 이하의 자연수 중 3과 5의 공배수를 모두 출력하는 프로그램을 작성하세요.
 
+```js
+//01.
+for(let i=0;i<100;i++){
+  if(i % 3 ===0 && i % 5 ===0){
+    console.log(`${i+1} : 공배수`);
+  } else {
+    console.log(`${i+1} : 아님`);
+  }
+}
+//02.
+for(let i=0;i<100;i++){
+  let num = i + 1
+  if((i % 3 ===0) && (i % 5 ===0){
+    // (i % 15 === 0)
+    console.log(`${num} : 공배수`);
+  } else {
+    console.log(`${num} : 아님`);
+  }
+}
+```
+
 ### 문제 6
 
 자연수를 입력받아, 그 수의 모든 약수를 출력하는 함수를 작성하세요.
+```js
+function print(num){
+  for(let i=0; i < num; i++){
+  let num = i + 1;
+    if(num % i === 0){
+      console.log(`${num} : 약수`);
+    } else {
+      console.log(`${num} : 아님`);
+    }
+  }
+}
+print(30);
+```
+
 
 ### 문제 7
 
 2 이상의 자연수를 입력받아, 그 수가 소수인지 아닌지를 판별하는 함수를 작성하세요.
+```js
+function print(num){
+  for(let i = 2; i < num ; i++){
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+print(7);
+```
 
 ### 문제 8
 
 1부터 100까지의 수를 차례대로 출력하되, 자릿수에 3, 6, 9중 하나라도 포함되어 있으면 '짝!'을 대신 출력하는 프로그램을 작성하세요.
+```js
+function print(){
+  for(let i = 0; i < 100 ; i ++){ 
+    const num = i.toString();
+    if(num.includes('3')||num.includes('6')||num.includes('9')){
+      console.log(`짝!`);
+    } else {
+      console.log(`${i}`);
+    }
+  }
+}
+print();
+```
 
 ### 문제 9
 
 양의 정수를 입력받아, 다음과 같은 패턴의 출력을 하는 함수를 작성하세요.
+```js
+function star(num){
+  let star = "*";
+  for (let i= 0; i < num; i++){
+    let num = i + 1; 
+    console.log(star.repeat(num));
+  }
+}
+star(3);
+```
 
 1을 입력받은 경우:
 ```
@@ -74,6 +241,20 @@ limit(3, 7, 0); -> 3
 ### 문제 10
 
 양의 정수를 입력받아, 다음과 같은 패턴의 출력을 하는 함수를 작성하세요.
+```js
+function star(num){
+  let star = '*';
+  let space = '';
+  for (let i = 1; i < 2*num; i++){
+      if (i <= num){
+        console.log(space.repeat(num-i)+star.repeat(i));
+      } else {
+        console.log(space.repeat(i-num)+star.repeat(2*num-i));
+      } 
+    }
+}
+star(3);
+```
 
 1를 입력받은 경우:
 ```
@@ -109,6 +290,24 @@ limit(3, 7, 0); -> 3
 ### 문제 12
 
 세 수를 입력받아 큰 것부터 차례대로 출력하는 함수를 작성하세요.
+```js
+function printLargerFirst (a,b,c){
+  let array = [a,b,c];
+  array.sort(
+    function(a,b){
+      return b-a;
+    }
+  )
+
+  for(let i=0 ; i < 3; i++){
+    console.log(array[i]);
+  }
+  
+  return array;
+}
+
+printLargerFirst(40,2,1);
+```
 
 ### 문제 13
 
