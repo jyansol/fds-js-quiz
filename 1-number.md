@@ -1,8 +1,8 @@
 ### 문제 1
 
 두 수를 입력받아 큰 수를 반환하는 함수를 작성하세요.
-1-1
 ```js
+//1-1
 function larger(x,y){
   const a = x
   const b = y
@@ -17,8 +17,8 @@ function larger(x,y){
 }
 ```
 
-1-2
 ```js
+//1-2
 function larger(x,y){
   let c ;
 // a가 크면 a를 c에 넣고 아니면 b를 c에 넣는다
@@ -32,8 +32,8 @@ function larger(x,y){
 larger(3,2);
 ```
 
-1-3
 ```js
+//1-3
 function larger(x,y){
 // a가 크면 a를 c에 넣고 아니면 b를 c에 넣는다
   if( x > y ){
@@ -45,13 +45,22 @@ function larger(x,y){
 larger(3,2);
 ```
 
-1-4
 ```js
+//1-4
 function larger(x,y){
 // a가 크면 a를 c에 넣고 아니면 b를 c에 넣는다
 return x > y ? x : y ;
 }
 larger(3,2);
+```
+
+```js
+//1-5
+function print(...arguments){
+  return Math.max(...arguments);
+  // [...arguments] = Array.from(arguments);
+}
+print(1,45,7,8,9,99);
 ```
 
 ### 문제 2
@@ -64,8 +73,8 @@ larger(3,2);
 throw new Error('입력값이 잘못되었습니다.');
 ```
 
-2-1
 ```js
+//2-1
 function isPositive(x, y, z){
   if( x * y * z > 0){
     return true;
@@ -75,6 +84,13 @@ function isPositive(x, y, z){
     throw new Error('입력값이 잘못되었습니다.');
   }
 }
+
+//2-2
+function isPositive(num1,num2,num3){
+  return num1 * num2 * num3 > 0 ;
+}
+
+// return num1 * num2 * num3 > 0
 
 console.log(isPositive(1,2,3));
 console.log(isPositive(1,2,-3));
