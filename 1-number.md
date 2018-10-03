@@ -90,7 +90,6 @@ function isPositive(num1,num2,num3){
   return num1 * num2 * num3 > 0 ;
 }
 
-// return num1 * num2 * num3 > 0
 
 console.log(isPositive(1,2,3));
 console.log(isPositive(1,2,-3));
@@ -191,15 +190,20 @@ print(30);
 
 2 이상의 자연수를 입력받아, 그 수가 소수인지 아닌지를 판별하는 함수를 작성하세요.
 ```js
+//01.
 function print(num){
   for(let i = 2; i < num ; i++){
     if (num % i === 0) {
       return false;
+      //for문을 아예 종료함.
     }
   }
   return true;
 }
 print(7);
+
+//02.
+
 ```
 
 ### 문제 8
@@ -223,11 +227,27 @@ print();
 
 양의 정수를 입력받아, 다음과 같은 패턴의 출력을 하는 함수를 작성하세요.
 ```js
+//01.
+function print(height){
+  for(let i = 0 ; i < height ; i ++){
+    //한줄출력
+    let stars = '';
+    for(let j = 0 ; j < i + 1 ; j++){
+      //'*' 출력
+      stars += '* '
+    }
+    console.log(stars);
+    //console은 줄바꿈이 되니까
+  }
+}
+print(5);
+
+//02.
 function star(num){
-  let star = "*";
   for (let i= 0; i < num; i++){
-    let num = i + 1; 
-    console.log(star.repeat(num));
+    // const start = '* '.repeat(i+1);
+    // console.log(start);
+    console.log('* '.repeat(i+1));
   }
 }
 star(3);
@@ -258,6 +278,39 @@ star(3);
 
 양의 정수를 입력받아, 다음과 같은 패턴의 출력을 하는 함수를 작성하세요.
 ```js
+//01.
+function print(height){
+  for(let i = 0 ; i < height ; i ++){
+    const n = i + 1;
+    const line = ' '.repeat(height-n) + '* '.repeat(n); //공백문자열 + '* '
+    console.log(line);
+  }
+  for(let i = height-2 ; i >= 0 ; i --){
+    const n = i + 1;
+    const line = ' '.repeat(height-n) + '* '.repeat(n); //공백문자열 + '* '
+    console.log(line);
+  }
+}
+print(5);
+
+//02.
+function printLine(height, i){
+  const n = i + 1;
+  const line = ' '.repeat(height-n) + '* '.repeat(n); //공백문자열 + '* '
+  console.log(line);
+}
+
+function print(height){
+  for(let i = 0 ; i < height ; i ++){
+    printLine(height, i);
+  }
+  for(let i = height-2 ; i >= 0 ; i --){
+    printLine(height, i);
+  }
+}
+print(5);
+
+//03.
 function star(num){
   let star = '*';
   let space = '';
